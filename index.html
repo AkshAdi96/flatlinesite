@@ -23,9 +23,9 @@
 
         /* The ECG Line Animation */
         .ecg-line {
-            stroke-dasharray: 1000;
-            stroke-dashoffset: 1000;
-            animation: dash 2s linear infinite;
+            stroke-dasharray: 2000;
+            stroke-dashoffset: 2000;
+            animation: dash 4s linear infinite;
         }
 
         @keyframes dash {
@@ -54,25 +54,28 @@
 
     <div class="z-10 text-center space-y-8 px-4">
         
-        <div class="flex items-center justify-center space-x-2 text-sm uppercase tracking-[0.2em] opacity-80 text-amber-500">
-            <div class="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></div>
-            <span>System Status: In Progress</span>
+        <div class="flex items-center justify-center space-x-2 text-sm uppercase tracking-[0.2em] opacity-90 text-red-400">
+    <div class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></div>
+    <span class="drop-shadow-[0_0_5px_rgba(248,113,113,0.5)]">System Status: In Progress</span>
         </div>
-
+        
         <h1 class="text-6xl md:text-9xl font-bold tracking-tighter neon-text">
             FLATLINE<span class="text-white">.IN</span>
         </h1>
 
-        <div class="w-full max-w-lg h-24 relative overflow-hidden mx-auto opacity-80">
-            <svg viewBox="0 0 500 100" class="w-full h-full">
-                <path d="M0,50 L50,50 L60,20 L70,80 L80,50 L150,50 L160,10 L170,90 L180,50 L300,50 L310,30 L320,70 L330,50 L500,50" 
-                      fill="none" 
-                      stroke="#22c55e" 
-                      stroke-width="2" 
-                      class="ecg-line" />
-            </svg>
-            <div class="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-[#050505]"></div>
-        </div>
+        <div class="w-full max-w-2xl h-24 relative overflow-hidden mx-auto opacity-80">
+    
+    <svg viewBox="0 0 800 100" class="w-full h-full">
+        
+        <path d="M0,50 L50,50 L60,20 L70,80 L80,50 L150,50 L160,10 L170,90 L180,50 L300,50 L310,30 L320,70 L330,50 L800,50" 
+              fill="none" 
+              stroke="#22c55e" 
+              stroke-width="2" 
+              class="ecg-line" />
+    </svg>
+    
+    <div class="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-[#050505]"></div>
+          </div>
 
         <p class="text-xl md:text-2xl text-gray-400 max-w-2xl mx-auto">
             The pulse of medical coding starts here.
@@ -85,10 +88,11 @@
         </div>
         
         <div class="fixed bottom-8 text-xs text-gray-600 font-mono">
-            Founded by <span class="text-gray-400 font-bold">Aditya Ray</span> // <span class="blink">_</span>
+            Founded by <span class="text-gray-400 font-bold">Aditya Ray & Team</span> // <span class="blink">_</span>
         </div>
 
     </div>
 
 </body>
 </html>
+
