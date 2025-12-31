@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=JetBrains+Mono:wght@400;700&display=swap');
+
+:root {
+    --medical-white: #f8fafc;
+    --medical-grid: #cbd5e1;
+    --emergency-red: #dc2626;
+    --slate-dark: #1e293b;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--medical-white);
+    color: var(--slate-dark);
+    overflow-x: hidden;
+}
+
+/* Medical Grid Background */
+.grid-bg {
+    background-size: 40px 40px;
+    background-image: linear-gradient(to right, rgba(148, 163, 184, 0.15) 1px, transparent 1px),
+                      linear-gradient(to bottom, rgba(148, 163, 184, 0.15) 1px, transparent 1px);
+}
+
+/* ECG Animation */
+.ecg-line {
+    stroke-dasharray: 920; 
+    stroke-dashoffset: 920; 
+    animation: dash 2.5s linear infinite;
+}
+
+@keyframes dash {
+    to { stroke-dashoffset: 0; }
+}
+
+/* Utility Classes */
+.hidden-section { display: none; }
+
+.blink { animation: blinker 1s linear infinite; }
+@keyframes blinker { 50% { opacity: 0; } }
+
+/* Card Styling */
+.clinical-card {
+    background: white;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    border-top: 4px solid var(--emergency-red);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in {
+    animation: fadeIn 0.8s ease-out forwards;
+}
