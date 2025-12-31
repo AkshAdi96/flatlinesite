@@ -3,28 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FLATLINE | System In Progress</title>
+    <title>FLATLINE | System Initializing</title>
 
     <link rel="icon" type="image/jpeg" href="icon.jpg">
     
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap');
+        /* Added 'Inter' for the clean medical look, kept JetBrains for code elements */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=JetBrains+Mono:wght@400;700&display=swap');
+
+        :root {
+            --medical-white: #f8fafc;
+            --medical-grid: #cbd5e1;
+            --emergency-red: #dc2626;
+        }
 
         body {
-            font-family: 'JetBrains Mono', monospace;
-            background-color: #050505;
+            font-family: 'Inter', sans-serif; /* Clean, professional font */
+            background-color: var(--medical-white);
             overflow: hidden;
+            color: #1e293b; /* Slate 800 */
         }
 
-        /* The Grid Background */
+        /* The Medical Graph Paper Background */
         .grid-bg {
             background-size: 40px 40px;
-            background-image: linear-gradient(to right, rgba(20, 255, 0, 0.05) 1px, transparent 1px),
-                              linear-gradient(to bottom, rgba(20, 255, 0, 0.05) 1px, transparent 1px);
+            /* Subtle gray grid lines instead of neon green */
+            background-image: linear-gradient(to right, rgba(148, 163, 184, 0.15) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(148, 163, 184, 0.15) 1px, transparent 1px);
         }
 
-        /* The ECG Line Animation */
+        /* The ECG Line Animation (RED) */
         .ecg-line {
             stroke-dasharray: 2000;
             stroke-dashoffset: 2000;
@@ -37,11 +46,6 @@
             }
         }
 
-        /* Neon Glow Text */
-        .neon-text {
-            text-shadow: 0 0 10px rgba(34, 197, 94, 0.7);
-        }
-        
         /* Blink Animation for cursor */
         .blink {
             animation: blinker 1s linear infinite;
@@ -51,52 +55,47 @@
         }
     </style>
 </head>
-<body class="h-screen w-full flex flex-col items-center justify-center text-green-500 grid-bg relative selection:bg-green-900 selection:text-white">
+<body class="h-screen w-full flex flex-col items-center justify-center grid-bg relative selection:bg-red-100 selection:text-red-900">
 
-    <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,#000000_90%)] pointer-events-none"></div>
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,#f8fafc_95%)] pointer-events-none"></div>
 
     <div class="z-10 text-center space-y-8 px-4">
         
-        <div class="flex items-center justify-center space-x-2 text-sm uppercase tracking-[0.2em] opacity-90 text-red-400">
-    <div class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></div>
-    <span class="drop-shadow-[0_0_5px_rgba(248,113,113,0.5)]">System Status: In Progress</span>
+        <div class="flex items-center justify-center space-x-2 text-sm uppercase tracking-[0.2em] font-bold text-red-600 bg-red-50 border border-red-100 py-2 px-4 rounded-full inline-block mx-auto shadow-sm">
+            <div class="w-2 h-2 rounded-full bg-red-600 animate-pulse"></div>
+            <span>System Status: In Progress</span>
         </div>
         
-        <h1 class="text-6xl md:text-9xl font-bold tracking-tighter neon-text">
-            FLATLINE<span class="text-white">.IN</span>
+        <h1 class="text-6xl md:text-9xl font-extrabold tracking-tighter text-slate-900 drop-shadow-sm">
+            FLATLINE<span class="text-red-600">.IN</span>
         </h1>
 
-        <div class="w-full max-w-2xl h-24 relative overflow-hidden mx-auto opacity-80">
-    
-    <svg viewBox="0 0 800 100" class="w-full h-full">
-        
-        <path d="M0,50 L50,50 L60,20 L70,80 L80,50 L150,50 L160,10 L170,90 L180,50 L300,50 L310,30 L320,70 L330,50 L800,50" 
-              fill="none" 
-              stroke="#22c55e" 
-              stroke-width="2" 
-              class="ecg-line" />
-    </svg>
-    
-    <div class="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-[#050505]"></div>
-          </div>
+        <div class="w-full max-w-2xl h-24 relative overflow-hidden mx-auto opacity-90">
+            <svg viewBox="0 0 800 100" class="w-full h-full">
+                <path d="M0,50 L50,50 L60,20 L70,80 L80,50 L150,50 L160,10 L170,90 L180,50 L300,50 L310,30 L320,70 L330,50 L800,50" 
+                      fill="none" 
+                      stroke="#dc2626" 
+                      stroke-width="2.5" 
+                      class="ecg-line" />
+            </svg>
+            <div class="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-[#f8fafc]"></div>
+        </div>
 
-        <p class="text-xl md:text-2xl text-gray-400 max-w-2xl mx-auto">
+        <p class="text-xl md:text-2xl text-slate-500 font-medium max-w-2xl mx-auto">
             The pulse of medical coding starts here.
         </p>
 
-        <div class="mt-12 py-4 px-8 border border-green-900 bg-black/50 backdrop-blur inline-block">
-            <span class="text-xl md:text-2xl font-bold tracking-[0.3em] text-white animate-pulse">
+        <div class="mt-12 py-4 px-8 border-l-4 border-red-600 bg-white shadow-lg inline-block rounded-r-md">
+            <span class="text-xl md:text-2xl font-bold tracking-[0.2em] text-slate-800 font-mono">
                 &lt; STARTING SOON /&gt;
             </span>
         </div>
         
-        <div class="fixed bottom-8 text-xs text-gray-600 font-mono">
-            Founded by <span class="text-gray-400 font-bold">Aditya Ray & Team</span> // <span class="blink">_</span>
+        <div class="fixed bottom-8 text-xs text-slate-400 font-mono uppercase tracking-wide">
+            Founded by <span class="text-slate-600 font-bold">Aditya Ray & Team</span> // <span class="blink text-red-500">_</span>
         </div>
 
     </div>
 
 </body>
 </html>
-
-
