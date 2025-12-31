@@ -1,9 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=JetBrains+Mono:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&family=JetBrains+Mono:wght@400;700&display=swap');
 
 :root {
     --medical-white: #f8fafc;
     --medical-grid: #cbd5e1;
     --emergency-red: #dc2626;
+    --success-green: #16a34a;
     --slate-dark: #1e293b;
 }
 
@@ -12,6 +13,8 @@ body {
     background-color: var(--medical-white);
     color: var(--slate-dark);
     overflow-x: hidden;
+    /* Essential for mobile landscape to allow scrolling */
+    min-height: 100vh;
 }
 
 /* Medical Grid Background */
@@ -33,6 +36,8 @@ body {
 }
 
 /* Utilities */
+.hidden-section { display: none !important; }
+
 .blink { animation: blinker 1s linear infinite; }
 @keyframes blinker { 50% { opacity: 0; } }
 
@@ -44,11 +49,31 @@ body {
     border-top: 4px solid var(--emergency-red);
 }
 
-/* Fade In Animation */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
+/* Mobile Menu Transition */
+#mobile-menu {
+    transition: max-height 0.3s ease-in-out;
+    max-height: 0;
+    overflow: hidden;
 }
-.animate-fade-in {
-    animation: fadeIn 0.8s ease-out forwards;
+#mobile-menu.open {
+    max-height: 200px;
+}
+
+/* Form Styling (Less Techy) */
+.medical-input {
+    width: 100%;
+    border: 2px solid #cbd5e1;
+    border-radius: 6px;
+    padding: 12px;
+    font-family: 'JetBrains Mono', monospace; /* Keep mono for code, but clean */
+    font-size: 1.1rem;
+    background: #f8fafc;
+    color: #334155;
+    transition: all 0.2s;
+}
+.medical-input:focus {
+    outline: none;
+    border-color: var(--emergency-red);
+    background: white;
+    box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
 }
