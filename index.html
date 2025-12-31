@@ -9,35 +9,35 @@
     
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* Added 'Inter' for the clean medical look, kept JetBrains for code elements */
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=JetBrains+Mono:wght@400;700&display=swap');
 
         :root {
             --medical-white: #f8fafc;
-            --medical-grid: #cbd5e1;
             --emergency-red: #dc2626;
         }
 
         body {
-            font-family: 'Inter', sans-serif; /* Clean, professional font */
+            font-family: 'Inter', sans-serif;
             background-color: var(--medical-white);
             overflow: hidden;
-            color: #1e293b; /* Slate 800 */
+            color: #1e293b;
         }
 
         /* The Medical Graph Paper Background */
         .grid-bg {
             background-size: 40px 40px;
-            /* Subtle gray grid lines instead of neon green */
             background-image: linear-gradient(to right, rgba(148, 163, 184, 0.15) 1px, transparent 1px),
                               linear-gradient(to bottom, rgba(148, 163, 184, 0.15) 1px, transparent 1px);
         }
 
-        /* The ECG Line Animation (RED) */
+        /* FIXED ANIMATION: 
+           Calculated exact path length (~900px) so there is no dead pause.
+           The line draws and immediately restarts.
+        */
         .ecg-line {
-            stroke-dasharray: 2000;
-            stroke-dashoffset: 2000;
-            animation: dash 4s linear infinite;
+            stroke-dasharray: 920;  /* Matched to path length */
+            stroke-dashoffset: 920; /* Starts fully hidden */
+            animation: dash 2.5s linear infinite; /* Faster, continuous loop */
         }
 
         @keyframes dash {
@@ -59,18 +59,18 @@
 
     <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,#f8fafc_95%)] pointer-events-none"></div>
 
-    <div class="z-10 text-center space-y-8 px-4">
+    <div class="z-10 text-center space-y-8 px-4 w-full max-w-4xl">
         
         <div class="flex items-center justify-center space-x-2 text-sm uppercase tracking-[0.2em] font-bold text-red-600 bg-red-50 border border-red-100 py-2 px-4 rounded-full inline-block mx-auto shadow-sm">
             <div class="w-2 h-2 rounded-full bg-red-600 animate-pulse"></div>
             <span>System Status: In Progress</span>
         </div>
         
-        <h1 class="text-6xl md:text-9xl font-extrabold tracking-tighter text-slate-900 drop-shadow-sm">
+        <h1 class="text-5xl md:text-9xl font-extrabold tracking-tighter text-slate-900 drop-shadow-sm">
             FLATLINE<span class="text-red-600">.IN</span>
         </h1>
 
-        <div class="w-full max-w-2xl h-24 relative overflow-hidden mx-auto opacity-90">
+        <div class="w-full h-24 relative overflow-hidden mx-auto opacity-90">
             <svg viewBox="0 0 800 100" class="w-full h-full">
                 <path d="M0,50 L50,50 L60,20 L70,80 L80,50 L150,50 L160,10 L170,90 L180,50 L300,50 L310,30 L320,70 L330,50 L800,50" 
                       fill="none" 
@@ -81,17 +81,17 @@
             <div class="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-[#f8fafc]"></div>
         </div>
 
-        <p class="text-xl md:text-2xl text-slate-500 font-medium max-w-2xl mx-auto">
+        <p class="text-xl md:text-2xl text-slate-500 font-medium max-w-2xl mx-auto px-4">
             The pulse of medical coding starts here.
         </p>
 
-        <div class="mt-12 py-4 px-8 border-l-4 border-red-600 bg-white shadow-lg inline-block rounded-r-md">
-            <span class="text-xl md:text-2xl font-bold tracking-[0.2em] text-slate-800 font-mono">
+        <div class="mt-12 py-4 px-6 md:px-8 border-l-4 border-red-600 bg-white shadow-lg inline-block rounded-r-md max-w-full">
+            <span class="text-lg md:text-2xl font-bold tracking-widest md:tracking-[0.2em] text-slate-800 font-mono whitespace-nowrap">
                 &lt; STARTING SOON /&gt;
             </span>
         </div>
         
-        <div class="fixed bottom-8 text-xs text-slate-400 font-mono uppercase tracking-wide">
+        <div class="fixed bottom-8 text-xs text-slate-400 font-mono uppercase tracking-wide w-full text-center">
             Founded by <span class="text-slate-600 font-bold">Aditya Ray & Team</span> // <span class="blink text-red-500">_</span>
         </div>
 
