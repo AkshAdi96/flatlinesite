@@ -1,1 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FLATLINE: NIGHT SHIFT</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=JetBrains+Mono:wght@500;800&display=swap" rel="stylesheet">
+</head>
+<body>
 
+    <section id="view-login" class="screen active">
+        <div class="login-container">
+            <h1 class="brand-glitch">FLATLINE</h1>
+            <div class="tagline">OPERATIONAL PHASE: NIGHT SHIFT</div>
+            
+            <div class="input-group">
+                <label>SQUAD CALLSIGN</label>
+                <input type="text" id="squadInput" placeholder="E.G. JNV NANDED ALPHA" autocomplete="off" spellcheck="false">
+            </div>
+
+            <button onclick="startGame()" class="btn-start">INITIATE SEQUENCE_</button>
+            
+            <div class="rules-ticker">
+                <p>⚠️ WARNING: 30 SECONDS PER CASE • SPEED IS SURVIVAL • NO RETRIES</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="view-arena" class="screen hidden">
+        <div class="hud-top">
+            <div class="hud-box">UNIT: <span id="hud-squad" class="highlight">---</span></div>
+            <div class="hud-box">XP: <span id="hud-score" class="highlight">0</span></div>
+        </div>
+
+        <div class="timer-wrapper">
+            <div id="timer-text">00:30</div>
+            <div class="progress-bar"><div id="progress-fill"></div></div>
+        </div>
+
+        <div class="case-card" id="main-card">
+            <div class="card-header">
+                <span id="case-id">CASE 01</span>
+                <span class="live-indicator">● LIVE</span>
+            </div>
+
+            <div class="card-content">
+                <h2 id="case-title">LOADING...</h2>
+                <p id="case-desc">Fetching patient data from server...</p>
+                <div id="case-hint" class="hint-text"></div>
+            </div>
+
+            <div class="interaction-area">
+                <input type="text" id="diagnosisInput" placeholder="ENTER CODE / DIAGNOSIS" autocomplete="off">
+                <div id="feedback-area"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="view-result" class="screen hidden">
+        <div class="result-container">
+            <div class="mission-status">SESSION TERMINATED</div>
+            <h1 id="final-xp">0 XP</h1>
+            <p class="squad-final">UNIT: <span id="final-squad">...</span></p>
+
+            <div class="stats-row">
+                <div class="stat">
+                    <span class="label">SAVED</span>
+                    <span class="val" id="stat-saved">0</span>
+                </div>
+                <div class="stat">
+                    <span class="label">LOST</span>
+                    <span class="val" id="stat-lost">0</span>
+                </div>
+                <div class="stat">
+                    <span class="label">SPEED</span>
+                    <span class="val" id="stat-speed">0s</span>
+                </div>
+            </div>
+
+            <button onclick="location.reload()" class="btn-restart">RE-DEPLOY</button>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
